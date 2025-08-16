@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
+
+*,html{
+    scroll-margin-top: 100px;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: url('/src/assets/bg-image.png') no-repeat top center/cover #000000bd;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+}
+
+
+/* -----------mobile ----- view--------- */
+
+
+@media screen and (max-width:767px) {
+    header{
+        width: 100%;
+        position: sticky;
+        top: 0;
+        border-radius: 0;
+        margin-top: 0;
+    }
+    .logo-container{
+        margin-left: 0;
+    }
+    .logo-container h3{
+        font-size: 1.2rem;
+    }
+    .button-hambuger-container{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .admin-btn{
+        padding: 4px 8px;
+    }
+    .nav-container{
+        position: fixed;
+        top: -1900px;
+        left: 0;
+        background: #eeeaea;
+        width: 100%;
+        height: 100vh;
+        z-index: 999;
+        transition: 0.7s ease;
+    }
+    .nav-container.active{
+        top: 0;
+    }
+    .logo-image, .logo-text, .closeIcon, .hamburger-container{
+        display: block;
+    }
+    .nav-logo-container{
+        margin: 20px 0 20px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .nav-container nav ul{
+        flex-direction: column;
+    }
+    /* --------Hero--------- */
+    .hero-text{
+        font-size: 2rem;
+    }
+    /* --------about---- */
+    .about-flex-container{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .about-image{
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 6px;
+        padding: 0 5px;
+    }
+    .about-text-container{
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 5px;
+    }
+    .about-title{
+        margin-top: 1px;
+        font-size: 1.3rem;
+    }
+
+    /* ----------banner--------- */
+
+    .banner-flex-container{
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+    /* ----------review---------- */
+    .review-title {
+        font-size: 1.5rem;
+    }
+    .slider-container{
+        width: 100%;
+    }
+
+
+    /*--------appoinment-banner----------  */
+    .appoinment-text{
+        font-size: 1.5rem;
+    }
+
+    /* ----how we work----- */
+    .title-text{
+        font-size: 1.4rem;
+    }
+
+    /* ---------footer------------ */
+    .footer-flex-container{
+        flex-wrap: wrap;
+        width: 70%;
+        gap: 20px;
+    }
+     .footer-flex-container div ul{
+        align-items: center;
+    }
+    .footer-logo{
+        align-items: center;
+    }
+}
+
+
+/* -----------Tablet ----- view--------- */
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    header{
+        width: 100%;
+        position: sticky;
+        top: 0;
+        border-radius: 0;
+        margin-top: 0;
+    }
+    .logo-container{
+        margin-left: 0;
+    }
+    .logo-container h3{
+        font-size: 1.2rem;
+    }
+    .button-hambuger-container{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .admin-btn{
+        padding: 4px 8px;
+    }
+    .nav-container{
+        position: fixed;
+        top: -1900px;
+        left: 0;
+        background: #eeeaea;
+        width: 100%;
+        height: 100vh;
+        z-index: 999;
+        transition: 0.7s ease;
+    }
+    .nav-container.active{
+        top: 0;
+    }
+    .logo-image, .logo-text, .closeIcon, .hamburger-container{
+        display: block;
+    }
+    .nav-logo-container{
+        margin: 20px 0 20px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .nav-container nav ul{
+        flex-direction: column;
+    }
+    /* --------Hero--------- */
+    .hero-text{
+        font-size: 2rem;
+    }
+    /* --------about---- */
+    .about-flex-container{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .about-image{
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 6px;
+    }
+    .about-text-container{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .about-title{
+        margin-top: 1px;
+        font-size: 1.3rem;
+    }
+
+    /* ----------banner--------- */
+
+    .banner-flex-container{
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+    /* ----------review---------- */
+    .review-title {
+        font-size: 1.5rem;
+    }
+    .slider-container{
+        width: 100%;
+    }
+
+
+    /*--------appoinment-banner----------  */
+    .appoinment-text{
+        font-size: 1.5rem;
+    }
+
+    /* ----how we work----- */
+    .title-text{
+        font-size: 1.4rem;
+    }
+
+    /* ---------footer------------ */
+    .footer-flex-container{
+        flex-wrap: wrap;
+        width: 70%;
+        gap: 20px;
+    }
+     .footer-flex-container div ul{
+        align-items: center;
+    }
+    .footer-logo{
+        align-items: center;
+    }
+}

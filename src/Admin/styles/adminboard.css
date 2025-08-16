@@ -1,0 +1,687 @@
+
+:root{
+    --bg-color: whitesmoke;
+    --text-color: black;
+    --button-color: mediumblue;
+    --button-text-color: white;
+}
+.dark-theme{
+    --bg-color: midnightblue;
+    --text-color: white;
+    --button-color: yellow;
+    --button-text-color: black;
+}
+
+.flex-container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-content{
+    flex-grow: 1;
+    background: rgb(222, 222, 225);
+    overflow-y: auto;
+    height: 100vh;
+    padding-left: 10px;
+}
+.sidenav{
+    background-color: var(--bg-color);
+    width: 300px;
+    height: 100vh;
+    transition: width 0.7s ease-in-out;
+    position: relative;
+    flex-shrink: 0;
+    /* overflow: hidden; */
+    z-index: 10;
+}
+.sidenav.active{
+    width: 50px;
+}
+.hamburgercontainer{
+    position: relative;
+}
+.hamburgerBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(-50%);
+}
+.hamburgercontainer h2{
+    font: 800 1.5rem mulish;
+    color: var(--button-color);
+    display: block;
+    transition: 0.3s ease;
+}
+.sidenav.active .hamburgercontainer h2{
+    display: none;
+}
+
+.sidenavlinks-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 20px;
+}
+.sidenavlinks-container nav ul{
+    list-style: none;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.sidenavlinks-container nav ul li{
+    margin-top: 2px;
+}
+.sidenavlinks-container nav ul li .links-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0 10px;
+    font: 500 1rem 'mulish';
+    transition: 0.3s ease-in-out;
+}
+.sidenavlinks-container nav ul li .links-container:hover{
+    background: blue;
+    color: white;
+    border-radius: 6px;
+}
+.sidenavlinks-container nav ul li .links-container.active{
+    background: blue;
+    color: white;
+    border-radius: 6px;
+}
+
+.sidenavlinks-container nav ul li{
+    position: relative;
+}
+.links{
+    display: block;
+    width: 100%;
+    padding: 10px 6px;
+}
+.sidenav.active .links{
+    display: none;
+}
+.sidenav.active .sidenavlinks-container{
+    justify-content: center;
+    padding-left: 0;
+}
+.sidenav.active .sidenavlinks-container nav ul li .links-container{
+    padding: 5px;
+}
+.sidenav.active .icon{
+    color: blue;
+}
+.sidenav.active .links-container:hover .icon{
+    color: yellow;
+}
+.sidenavlinks-container nav ul li .links-container.active .icon{
+    color: yellow;
+}
+.link-wrapper{
+    position: relative;
+    width: 100%;
+}
+.tootip{
+     position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%) translateX(-10px);
+  opacity: 0;
+  background: #000;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.sidenav.active .link-wrapper .links-container:hover + .tootip {
+    transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+.userProfiles{
+  right: -1900px;
+  position: fixed;
+  transition: right 0.5s ease-in-out;
+}
+.userProfiles.isActive{
+    right: 5px;
+}
+.responsive-nav, .menu-content, .res-header{
+    display: none;
+}
+
+.inner-form-container::-webkit-scrollbar {
+  display: none;
+}
+.inner-form-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+/* ----------Media for mobile devices---------- */
+
+@media screen and (max-width: 768px) {
+    .main-content{
+        padding-bottom: calc(80px + 2rem);
+        padding-left: 0;
+    }
+    /* ----------nav--------- */
+    .sidenav{
+        display: none;
+    }
+    .responsive-nav{
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        background: white;
+        width: 100%;
+        height: 80px;
+        padding: 15px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .responsive-nav nav ul{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        justify-content: space-between;
+    }
+    .responsive-nav nav ul li div a{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .responsive-nav nav ul li div a span{
+        color:#7b6868;
+        font: 500 0.8rem 'mulish', sans-serif;
+    }
+    .menu-link{
+        background-color: blue;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-link a .menu-icon, .menu-link a .menu-text{
+        color: whitesmoke;
+    }
+
+    .menu-content{
+        display: block;
+        opacity: 0;
+        position: fixed;
+        bottom: 0px;
+        background: rgba(0, 0, 0, 0.324);
+        width: 100%;
+        height: auto;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        padding: 5px;
+        transition: all 0.5s ease;
+        visibility: hidden;
+        z-index: -99999;
+    }
+    .menu-content.isActive{
+        opacity: 1;
+        bottom: 80px;
+        visibility: visible;
+        z-index: 99999;
+    }
+    .menu-content nav{
+        width: 90%;
+        margin: 0 auto;
+        background: whitesmoke;
+        border-radius: 6px;
+        position: relative;
+    }
+    .menu-content nav ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+    .menu-content nav ul li{
+        margin-top: 10px;
+    }
+    .menu-content nav ul li div a{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        border-radius: 6px;
+    }
+    .links-container-res.active{
+        background: lightblue;
+        padding: 4px;
+        border-radius: 6px;
+    }
+
+    /* ---------For Header-------- */
+    
+    .header-lg{
+        display: none;
+    }
+    .res-header{
+        display: flex;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    .userProfiles{
+        padding: 10px;
+        top: 60px;
+        max-width: 400px;
+        z-index: 9999;
+    }
+
+    /* ---------overviews Banners-------- */
+    
+    .hour-appoinmnent-banner{
+        margin-right: 0;
+        width: 95%;
+        margin: 10px auto;
+    }
+    
+    /* ------------Messages----contetnt------------ */
+
+    .message-title-search{
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 6px;
+    }
+    .message-title{
+        font: 600 1.3rem "mulish";
+    }
+    .search-bar-container{
+        max-width: 97%;
+    }
+    .stauts-container{
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+    }
+    .status{
+        padding: 3px 10px;
+    }
+    .filter-container{
+        flex-direction: column;
+    }
+    .message-status-filter{
+        padding: 0 10px;
+        width: 90%;
+        margin: 20px auto;
+    }
+    .messages-bar{
+        width: 100%;
+        border-radius: 0;
+    }
+    .DP{
+        max-width: 30px;
+        height: 30px;
+        width: 100%;
+        font-size: 0.8rem;
+    }
+    .message-name-container{
+        margin-left: 5px;
+    }
+    .message-date-time{
+        font-size: 0.6rem;
+    }
+    .DP-datails{
+        max-width: 40px;
+        height: 40px;
+        width: 100%;
+        font-size: 1rem;
+    }
+    .message-details-header{
+        gap: 1px;
+    }
+    .message-dp-info{
+        margin-left: 13px;
+    }
+    
+
+    /* ----------Setting-------------- */
+
+    .profile-flex{
+        flex-direction: column;
+        gap: 6px;
+        overflow-y: scroll;
+        padding-bottom: 150px;
+        margin-top: 30px;
+    }
+    .profile-image{
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        max-height: 500px;
+    }
+    .editing-profile-container{
+        align-items: center;
+    }
+    .inner-editing-container{
+        max-height: 400px;
+        height: 100%;
+    }
+    .inner-adduser-container{
+        max-height: 550px;
+        height: 100%;
+    }
+    .inner-view-container{
+        max-height: 500px;
+        height: 100%;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    /* ----------------Appoinment day------------------ */
+
+    .appoinment-header, .technical-header, .customer-header, .pricing-header, .services-header{
+        flex-direction: column;
+        justify-content:  center;
+    }
+    .box-status-container{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .status-container{
+        justify-content: center;
+    }
+    .appt-status{
+        padding: 0.4rem;
+    }
+    .table-body, .table-head{
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+    .table-head-dt{
+        padding: 0.75rem;
+    }
+
+    .form-flex-conainer{
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .inner-form-container{
+        max-height: 700px;
+        padding-bottom: 90px;
+        margin-bottom: 90px;
+    }
+}
+
+
+
+/* --------------Media for tablet devices */
+@media screen and (min-width: 767px) and (max-width:1023px) {
+    .main-content{
+        padding-bottom: calc(80px + 2rem);
+        padding-left: 0;
+    }
+    /* ----------nav--------- */
+    .sidenav{
+        display: none;
+    }
+    .responsive-nav{
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        background: white;
+        width: 100%;
+        height: 80px;
+        padding: 15px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .responsive-nav nav ul{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        justify-content: space-between;
+        width: 70%;
+        margin: 0 auto;
+        /* border: 1px solid black; */
+    }
+    .responsive-nav nav ul li div a{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .responsive-nav nav ul li div a span{
+        color:#7b6868;
+        font: 500 0.8rem 'mulish', sans-serif;
+    }
+    .menu-link{
+        background-color: blue;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-link a .menu-icon, .menu-link a .menu-text{
+        color: whitesmoke;
+    }
+
+    .menu-content{
+        display: block;
+        opacity: 0;
+        position: fixed;
+        bottom: 0px;
+        background: rgba(0, 0, 0, 0.324);
+        width: 100%;
+        height: auto;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        padding: 5px;
+        transition: all 0.5s ease;
+        visibility: hidden;
+        z-index: -99999;
+    }
+    .menu-content.isActive{
+        opacity: 1;
+        bottom: 80px;
+        visibility: visible;
+        z-index: 99999;
+    }
+    .menu-content nav{
+        width: 90%;
+        margin: 0 auto;
+        background: whitesmoke;
+        border-radius: 6px;
+        position: relative;
+    }
+    .menu-content nav ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+    .menu-content nav ul li{
+        margin-top: 10px;
+    }
+    .menu-content nav ul li div a{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        border-radius: 6px;
+    }
+    .links-container-res.active{
+        background: lightblue;
+        padding: 4px;
+        border-radius: 6px;
+    }
+
+    /* ---------For Header-------- */
+    
+    .header-lg{
+        display: none;
+    }
+    .res-header{
+        display: flex;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    .userProfiles{
+        padding: 10px;
+        top: 60px;
+        max-width: 400px;
+        z-index: 9999;
+    }
+
+    /* ---------overviews Banners-------- */
+    
+    .hour-appoinmnent-banner{
+        margin-right: 0;
+        width: 95%;
+        margin: 10px auto;
+    }
+    
+    /* ------------Messages----contetnt------------ */
+
+    .message-title-search{
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 6px;
+    }
+    .message-title{
+        font: 600 1.3rem "mulish";
+    }
+    .search-bar-container{
+        max-width: 97%;
+    }
+    .stauts-container{
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+    }
+    .status{
+        padding: 3px 10px;
+    }
+    .filter-container{
+        flex-direction: column;
+    }
+    .message-status-filter{
+        padding: 0 10px;
+        width: 90%;
+        margin: 20px auto;
+    }
+    .messages-bar{
+        width: 100%;
+        border-radius: 0;
+    }
+    .DP{
+        max-width: 30px;
+        height: 30px;
+        width: 100%;
+        font-size: 0.8rem;
+    }
+    .message-name-container{
+        margin-left: 5px;
+    }
+    .message-date-time{
+        font-size: 0.6rem;
+    }
+    .DP-datails{
+        max-width: 40px;
+        height: 40px;
+        width: 100%;
+        font-size: 1rem;
+    }
+    .message-details-header{
+        gap: 1px;
+    }
+    .message-dp-info{
+        margin-left: 13px;
+    }
+    
+
+    /* ----------Setting-------------- */
+
+    .profile-flex{
+        flex-direction: column;
+        gap: 6px;
+        overflow-y: scroll;
+        padding-bottom: 150px;
+        margin-top: 30px;
+    }
+    .profile-image{
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        max-height: 500px;
+    }
+    .editing-profile-container{
+        align-items: start;
+    }
+    .inner-editing-container{
+        max-height: 400px;
+        height: 100%;
+    }
+    .inner-adduser-container{
+        max-height: 550px;
+        height: 100%;
+    }
+    .inner-view-container{
+        max-height: 500px;
+        height: 100%;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+
+     /* ----------------Appoinment day------------------ */
+
+    .appoinment-header,  .technical-header, .customer-header, .pricing-header, .services-header{
+        flex-direction: column;
+        justify-content:  center;
+    }
+    .box-status-container{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .status-container{
+        justify-content: center;
+    }
+    .appt-status{
+        padding: 0.4rem;
+    }
+    .table-body, .table-head{
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+    .table-head-dt{
+        padding: 0.75rem;
+    }
+
+    .form-flex-conainer{
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .inner-form-container{
+        max-height: 800px;
+        padding-bottom: 40px;
+        margin-bottom: 30px;
+    }
+}
+
+
