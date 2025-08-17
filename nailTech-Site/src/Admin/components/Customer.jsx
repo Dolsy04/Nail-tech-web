@@ -309,7 +309,7 @@ function Customer(){
                 <RiCloseLargeFill size={30} className="absolute right-1 top-1 cursor-pointer" onClick={()=>setShowModal(false)}/>
 
                 <h2 className="font-[mulish] font-bold tracking-wider text-xl text-blue-600 uppercase pt-6 pb-3">Customer Details</h2>
-
+              
                 <div>
                     <p className="mb-5 font-[mulish] text-md tracking-wide">Name: <span className="ml-1 font-[mulish] text-lg font-semibold tracking-wider">{selectedAppointment.name}</span></p>
                     <p className="mb-5 font-[mulish] text-md tracking-wide">Email: <span className="ml-1 font-[mulish] text-lg font-semibold tracking-wider">{selectedAppointment.email}</span></p>
